@@ -30,7 +30,8 @@
     "http": "0.0.0",
     "path": "^0.12.7",
     "request": "^2.81.0",
-    "socket.io": "^1.7.3"
+    "socket.io": "^1.7.3",
+    "xml2js-parser": "^1.1.1"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

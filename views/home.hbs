@@ -1,11 +1,14 @@
 <div id="newsfeed">
     <h1>News feed</h1>
-
+    <audio src="" class="speech" hidden></audio>
+    <button class="textToSpeech">klicka hehe</button>
     {{# each articles }}
         <div class="article">
             <h2>{{ this.title }}</h2>
-            <img src="{{ this.imgSrc }}">
-            <p>{{this.ingress}}</p>
+            <div class="ingress" style="display: none">
+                <p><img src="{{ this.imgSrc }}"></p>
+                <p>{{this.ingress}}</p>
+            </div>
         </div>
     {{/each}}
 </div>

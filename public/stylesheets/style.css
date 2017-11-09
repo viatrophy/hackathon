@@ -1,16 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Lora);
+
+
 body {
     background-color: ghostwhite;    
 }
 
 #wrapper {
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 600px;
 }
 
 .article {
     background-color: pink;
-    /* width: 500px; */
+    padding:10px;
     margin: 10px;
+}
+
+.article h2 {
+    font-family: "Montserrat";
+}
+
+.article .ingress {
+    font-family: "Lora";
 }
 
 .article img {

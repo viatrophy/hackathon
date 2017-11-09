@@ -1,4 +1,8 @@
+'use strict';
+
 let request = require('request');
+let requestPromise = require('request-promise');
+
 let xmlparser = require('xml2js-parser').parseString;
 let router = require("express").Router();
 
@@ -7,32 +11,51 @@ router.route('/')
     .get(function (req, res) {
 
         let baseUrl = 'https://www.aftonbladet.se/rss.xml';
+        let articles = [];
 
-        request(baseUrl, function (err, resp, body) { 
+        xmlparser()
 
-            xmlparser(body, (err, result) => {
-                let articles = [];
+        requestPromise(baseUrl).then(function(body) {
+            
+            let promise = new Promise((resolve, reject) => {
+                xmlparser(body, (err, result) => {
+                    resolve(result);
+                })
+            })
 
-                let articlesFromAftonbladet = result.rss.channel[0].item;
+            return Promise.all([promise]);
+            // xmlparser(body);
 
-                for (let i = 0; i < articlesFromAftonbladet.length; i++) {
-                    let imgSrc = articlesFromAftonbladet[i].description[0].substring(10);
-                    imgSrc = imgSrc.substring(0, imgSrc.length-5);
+        }).then(function(body) {
+            console.log(body[0].rss);                  
+            let articlesFromAftonbladet = body[0].rss.channel[0].item;
 
-                    articles.push({
-                        title: articlesFromAftonbladet[i].title,
-                        imgSrc: imgSrc
-                    });
-                }
-                // let articles = result.rss.channel[0].item;
-                // let title = articles[0].title;
-                // let img = articles[5].description;
+            for (let i = 0; i < articlesFromAftonbladet.length; i++) {
+                
+                let imgSrc = articlesFromAftonbladet[i].description[0].substring(10);
+                imgSrc = imgSrc.substring(0, imgSrc.length-5);
 
-                // let src = img[0].substring(10);
-                // src = src.substring(0, src.length-5);
+                articles.push({
+                    title: articlesFromAftonbladet[i].title,
+                    imgSrc: imgSrc
+                });
+            }            
 
-                res.render('home', {articles: articles});
-            });            
+            let promises = [];
+
+            for (let i = 0; i < articlesFromAftonbladet.length; i++) {
+                promises.push(requestPromise(articlesFromAftonbladet[i].link[0]));
+            }
+
+            return Promise.all(promises);
+
+        }).then(function(data) {
+            //få ut ingressen
+            for(let i = 0; i < data.length; i++) {
+                articles[i].ingress = data[i];
+                
+            }
+            res.render('home', {articles: articles});
         });
 
 

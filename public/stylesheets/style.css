@@ -1,0 +1,18 @@
+body {
+    background-color: ghostwhite;    
+}
+
+#wrapper {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.article {
+    background-color: pink;
+    /* width: 500px; */
+    margin: 10px;
+}
+
+.article img {
+    text-align: center;
+}

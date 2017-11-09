@@ -24,12 +24,14 @@
   "homepage": "https://github.com/viatrophy/sommarprojekt",
   "dependencies": {
     "body-parser": "^1.16.1",
+    "cheerio": "^1.0.0-rc.2",
     "express": "^4.14.1",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.1",
     "http": "0.0.0",
     "path": "^0.12.7",
     "request": "^2.81.0",
+    "request-promise": "^4.2.2",
     "socket.io": "^1.7.3",
     "xml2js-parser": "^1.1.1"
   },

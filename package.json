@@ -1,0 +1,38 @@
+{
+  "name": "sommarprojekt",
+  "version": "1.0.0",
+  "description": "sommarprojekt",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1dv023/je222zj-examination-2.git"
+  },
+  "keywords": [
+    "nodejs",
+    "exam",
+    "2"
+  ],
+  "author": "Jonas Erixon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viatrophy/sommarprojekt/issues"
+  },
+  "homepage": "https://github.com/viatrophy/sommarprojekt",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.1",
+    "http": "0.0.0",
+    "path": "^0.12.7",
+    "request": "^2.81.0",
+    "socket.io": "^1.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}

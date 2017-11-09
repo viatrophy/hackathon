@@ -5,6 +5,8 @@ let requestPromise = require('request-promise');
 
 let xmlparser = require('xml2js-parser').parseString;
 let router = require("express").Router();
+let cheerio = require("cheerio");
+let striptags = require('striptags');
 
 
 router.route('/')
@@ -52,8 +54,10 @@ router.route('/')
         }).then(function(data) {
             //få ut ingressen
             for(let i = 0; i < data.length; i++) {
-                articles[i].ingress = data[i];
-                
+                // articles[i].ingress = data[i];
+
+                articles[i].ingress = striptags(cheerio.load(data[i])('div[data-test-id="lead-text"]').text());                
+                console.log(cheerio.load(data[i])('div[data-test-id="lead-text"]').text());
             }
             res.render('home', {articles: articles});
         });

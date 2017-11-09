@@ -1,11 +1,10 @@
 <div id="newsfeed">
     <h1>News feed</h1>
-            <img src="{{ src }}">
 
     {{# each articles }}
         <div class="article">
             <h2>{{ this.title }}</h2>
-
+            <img src="{{ this.imgSrc }}">
         </div>
     {{/each}}
 </div>

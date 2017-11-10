@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    
     $(".article").click(function(event) {
         console.log(event.target);
         $('.ingress', this).toggle("slow", function() {

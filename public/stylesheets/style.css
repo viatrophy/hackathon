@@ -161,6 +161,7 @@ body {background-color: #fafafa;}
     line-height:70px;
     text-align:center;
     display:none;
+    cursor:pointer;
 }
 
 @media (max-width: 800px) {

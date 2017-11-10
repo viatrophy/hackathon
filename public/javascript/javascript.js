@@ -28,32 +28,53 @@ $(document).ready(function() {
     // });
 
 
+    let flag = true;
 
+    let allTexts = $('.article').text();
+
+    var msg = new SpeechSynthesisUtterance();
+    var voices = window.speechSynthesis.getVoices();
+    msg.voice = voices[10]; // Note: some voices don't support altering params
+    msg.voiceURI = 'native';
+    msg.volume = 1; // 0 to 1
+    msg.rate = 10; // 0.1 to 10
+    msg.pitch = 1; //0 to 2
+    msg.text = allTexts;
+    msg.lang = 'sv-SE';
+
+    msg.onend = function(e) {
+        console.log('Finished in ' + event.elapsedTime + ' seconds.');
+    };
+
+    speechSynthesis.speak(msg);
+    speechSynthesis.pause();
 
     $(".textToSpeech").click(function (event) {
-        var narrator = new Audio('https://translate.google.com/translate_tts?ie=UTF-8&tl=tr-TR&client=tw-ob&q=The+players+name');
-
-        // narrator.setAttribute('rel', 'nofollow');
-        narrator.play();
+        if (flag)
+        {
+            speechSynthesis.resume();
+            flag = false;
+        }
+        else
+        {
+            speechSynthesis.pause();
+            flag = true;
+        }
+    })
+    $(".play_btn").click(function (event) {
+        if (flag)
+        {
+            speechSynthesis.resume();
+            flag = false;
+        }
+        else
+        {
+            speechSynthesis.pause();
+            flag = true;
+        }
     })
 
-    // let allTexts = $('body').text();
 
-    // var msg = new SpeechSynthesisUtterance();
-    // var voices = window.speechSynthesis.getVoices();
-    // msg.voice = voices[10]; // Note: some voices don't support altering params
-    // msg.voiceURI = 'native';
-    // msg.volume = 1; // 0 to 1
-    // msg.rate = 1; // 0.1 to 10
-    // msg.pitch = 2; //0 to 2
-    // msg.text = allTexts;
-    // msg.lang = 'sv-SE';
-
-    // msg.onend = function(e) {
-    //   console.log('Finished in ' + event.elapsedTime + ' seconds.');
-    // };
-    
-    // speechSynthesis.speak(msg);
 })
 
 

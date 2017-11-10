@@ -29,7 +29,7 @@ router.route('/')
             // xmlparser(body);
 
         }).then(function(body) {
-            console.log(body[0].rss);                  
+            // console.log(body[0].rss);                  
             let articlesFromAftonbladet = body[0].rss.channel[0].item;
 
             for (let i = 0; i < articlesFromAftonbladet.length; i++) {
@@ -39,9 +39,10 @@ router.route('/')
 
                 articles.push({
                     title: articlesFromAftonbladet[i].title,
-                    imgSrc: imgSrc
-                });
-            }            
+                    imgSrc: imgSrc,
+                    articleSource: articlesFromAftonbladet[i].link[0]
+                });                
+            }
 
             let promises = [];
 
@@ -54,10 +55,9 @@ router.route('/')
         }).then(function(data) {
             //få ut ingressen
             for(let i = 0; i < data.length; i++) {
-                // articles[i].ingress = data[i];
 
                 articles[i].ingress = striptags(cheerio.load(data[i])('div[data-test-id="lead-text"]').text());                
-                console.log(cheerio.load(data[i])('div[data-test-id="lead-text"]').text());
+                // console.log(cheerio.load(data[i])('div[data-test-id="lead-text"]').text());
             }
             res.render('home', {articles: articles});
         });

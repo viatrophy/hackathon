@@ -1,13 +1,17 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald);
 @import url(https://fonts.googleapis.com/css?family=Lora);
+@import url(https://fonts.googleapis.com/css?family=Raleway);
 
-body {
-    background-color: #fafafa;    
-}
+body {background-color: #fafafa;}
 
-.time_heading {font-family: "Arial"; margin:0px; padding:0px; margin-bottom:5px;}
+.user_area {font-family:"Raleway"; padding:40px 10px; width:100%;}
+
+.time_heading {font-family:"Raleway"; margin:0px; padding:0px; margin-bottom:5px;}
+
+#newsfeed {border-left:2px solid rgba(0,0,0,0.7); padding-left:8px;}
 
 .sidebar {
+    font-family:"Raleway";
     position:fixed;
     left:0;
     top:0;
@@ -43,9 +47,7 @@ body {
 
 #wrapper {
     margin: 0 auto;
-    max-width: 600px;
-    border-left:2px solid rgba(0,0,0,0.7);
-    padding-left:8px;
+    max-width:650px;
 }
 
 .article {
@@ -57,10 +59,12 @@ body {
 
 .article h2 {
     font-family: "Oswald";
+    font-size:22px;
     margin-bottom:5px;
     padding-bottom:0px;
+    width:85%;
+    display:inline;
 }
-
 .article .ingress {
     font-family: "Lora";
 }
@@ -70,17 +74,24 @@ body {
 }
 
 .article_time {
+    font-family: "Oswald";
+    color:rgba(0,0,0,0.6);
     font-size:13px;
     padding:0px;
     margin:0px;
-    margin-bottom:5px;
+    margin-top:6px;
+    float:right;
+    text-align:right;
 }
 
 .listenBtn {
-    background-color:#199ed8;
+    font-family:"Raleway";
+    background-color:#03A9F4;
     color:white;
     border-radius:5px;
     border:0;
     font-size:18px;
     padding:6px 13px;
+    margin-bottom:15px;
+    box-shadow:0px 0px 3px 0px rgba(0,0,0,0.5);
 }

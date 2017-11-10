@@ -90,9 +90,10 @@ body {background-color: #fafafa;}
     position:absolute;
     left:30px;
     top:30px;
+    cursor:pointer;
 }
 
-.burger {font-size:28px; position:absolute; right:10px; display:none;}
+.burger {font-size:28px; position:absolute; right:10px; display:none; cursor:pointer;}
 
 #wrapper {
     margin: 0 auto;
@@ -164,7 +165,7 @@ body {background-color: #fafafa;}
     cursor:pointer;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
     body {
     }
 

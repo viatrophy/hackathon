@@ -6,7 +6,14 @@ $(document).ready(function() {
             
         })
     })
-    
+
+    $(".burger").click(function(event) {
+        $('.sidebar').toggleClass("show");
+    });
+    $(".sidebar_togglebtn").click(function(event) {
+        $('.sidebar').toggleClass("show");
+    });
+
 
 
     // $(function() {

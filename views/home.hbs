@@ -9,14 +9,14 @@
 
             <h2>{{ this.title }}</h2>
 
-            <p class="article_time">19:53:33</p>
+            <p class="article_time">19:53</p>
 
             <div class="ingress" style="display: none">
                 <p><img src="{{ this.imgSrc }}"></p>
                 <p>{{this.ingress}}</p>
+                <p class="article_source">Källa: <a href="{{ this.articleSource }}">Aftonbladet</a></p>
             </div>
 
-            <p class="article_source">Källa: <a href="{{ this.articleSource }}">Aftonbladet</a></p>
         </div>
     {{/each}}
 </div>

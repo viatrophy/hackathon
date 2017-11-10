@@ -11,15 +11,20 @@
 <body>
   <div id="wrapper">
       <div class="user_area">
+          <p>
           <i class="fa fa-user-circle-o" aria-hidden="true"></i>
           Simon
+          <a class="burger"><i class="fa fa-bars" aria-hidden="true"></i></a>
+          </p>
       </div>
       {{{body}}}
   </div>
-  <div class="sidebar">
+  <div class="sidebar show">
       <i class="fa fa-search" id="search_icon" aria-hidden="true"></i><input placeholder="Sök efter nyckelord.."></input>
 
-      <ul id="hashtags">
+      <div class="sidebar_togglebtn"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+
+      <ul id="sidebar_hashtags">
           <li>#fakenews</li>
           <li>#hackaton</li>
           <li>#swaglife</li>
@@ -30,7 +35,35 @@
           <li>#stockholm</li>
           <li>#kalmar</li>
       </ul>
+
+      <div class="sidebar_categories">
+          <h2>Dina kategorier</h2>
+          <ul>
+              <li>Kalmar</li>
+              <li>Teknik</li>
+              <li>Tesla Motors</li>
+              <li>Sverige</li>
+              <li>Svensk politik</li>
+          </ul>
+          
+          <h2>Populära kategorier</h2>
+          <ul>
+              <li>USA</li>
+              <li>Call of Duty</li>
+              <li>Nordkorea</li>
+              <li>Sverige</li>
+          </ul>
+      </div>
+
+      <div class="sidebar_saved">
+          <h2>Sparat</h2>
+          <ul>
+              <li>Trolig startelva – så kan S..</li>
+              <li>Ny forskning: Choklad och v..</li>
+          </ul>
+      </div>
   </div>
+  <div class="play_btn">10 november <i class="fa fa-volume-up" aria-hidden="true"></i></div>
   {{!--<script src="/socket.io/socket.io.js"></script>
   <script src='socket.js'></script>--}}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
